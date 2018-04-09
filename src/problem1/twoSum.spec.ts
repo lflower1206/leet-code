@@ -9,7 +9,7 @@ describe('Problem 1', () => {
     const result = twoSum(nums, target);
     expect(result).deep.equals([]);
   });
-  it('Case 1', () => {
+  it('Case 2', () => {
     const nums = [2, 7, 11, 15];
     const target = 9;
     const result = twoSum(nums, target);
