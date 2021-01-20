@@ -1,6 +1,5 @@
 import { addTwoNumbers, ListNode } from './addTwoNumbers';
-import { expect } from 'chai';
-import 'mocha';
+
 
 const toString = (node: ListNode) => {
   const result = [];
@@ -40,7 +39,7 @@ describe('Problem 2: Add Two Numbers', () => {
 
     const result = addTwoNumbers(node1, node2);
 
-    expect(toString(result)).equal(output);
+    expect(toString(result)).toBe(output);
   });
   it('Case 2', () => {
     const node1: ListNode = {
@@ -55,7 +54,7 @@ describe('Problem 2: Add Two Numbers', () => {
 
     const result = addTwoNumbers(node1, node2);
 
-    expect(toString(result)).equal(output);
+    expect(toString(result)).toBe(output);
   });
   it('Case 3', () => {
     const node1: ListNode = {
@@ -70,7 +69,7 @@ describe('Problem 2: Add Two Numbers', () => {
 
     const result = addTwoNumbers(node1, node2);
 
-    expect(toString(result)).equal(output);
+    expect(toString(result)).toBe(output);
   });
   it('Case 4', () => {
     const node1: ListNode = {
@@ -88,6 +87,6 @@ describe('Problem 2: Add Two Numbers', () => {
 
     const result = addTwoNumbers(node1, node2);
 
-    expect(toString(result)).equal(output);
+    expect(toString(result)).toBe(output);
   });
 });

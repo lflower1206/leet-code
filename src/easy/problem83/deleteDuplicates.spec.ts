@@ -1,6 +1,5 @@
 import { deleteDuplicates, IListNode } from './deleteDuplicates';
-import { expect } from 'chai';
-import 'mocha';
+
 
 const toString = (node: IListNode) => {
   const result = [];
@@ -32,7 +31,7 @@ describe('Problem 83 - Remove Duplicates from Sorted List', () => {
     const output = [1, 2, 4].join(' -> ');
     const result = deleteDuplicates(input);
 
-    expect(toString(result)).equal(output);
+    expect(toString(result)).toBe(output);
   });
   it('Case 2', () => {
     const input: IListNode = {
@@ -54,7 +53,7 @@ describe('Problem 83 - Remove Duplicates from Sorted List', () => {
     const output = [1, 2, 3].join(' -> ');
     const result = deleteDuplicates(input);
 
-    expect(toString(result)).equal(output);
+    expect(toString(result)).toBe(output);
   });
   it('Case 3', () => {
     const input: IListNode = {
@@ -67,7 +66,7 @@ describe('Problem 83 - Remove Duplicates from Sorted List', () => {
     const output = [1].join(' -> ');
     const result = deleteDuplicates(input);
 
-    expect(toString(result)).equal(output);
+    expect(toString(result)).toBe(output);
   });
   it('Case 4', () => {
     const input: IListNode = {
@@ -83,6 +82,6 @@ describe('Problem 83 - Remove Duplicates from Sorted List', () => {
     const output = [1, 2].join(' -> ');
     const result = deleteDuplicates(input);
 
-    expect(toString(result)).equal(output);
+    expect(toString(result)).toBe(output);
   });
 });
