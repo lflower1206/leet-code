@@ -1,6 +1,5 @@
 import lengthOfLastWord from './lengthOfLastWord';
-import { expect } from 'chai';
-import 'mocha';
+
 
 describe('Problem 58', () => {
   it('Case 1', () => {
@@ -8,6 +7,6 @@ describe('Problem 58', () => {
     const output = 5;
     const result = lengthOfLastWord(s);
 
-    expect(result).equal(output);
+    expect(result).toBe(output);
   });
 });

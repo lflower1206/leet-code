@@ -1,6 +1,5 @@
 import removeDuplicates from './removeDuplicates';
-import { expect } from 'chai';
-import 'mocha';
+
 
 const toString = (nums: number[] | null) => {
   if (nums === null) {
@@ -15,14 +14,14 @@ describe('Problem 26', () => {
     const input = [1, 1, 2];
     const output = 2;
     const result = removeDuplicates(input);
-    expect(result).equal(output);
-    expect(toString(input.slice(0, result))).equal(toString([1, 2]));
+    expect(result).toBe(output);
+    expect(toString(input.slice(0, result))).toBe(toString([1, 2]));
   });
   it('Case 2', () => {
     const input = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
     const output = 5;
     const result = removeDuplicates(input);
-    expect(result).equal(output);
-    expect(toString(input.slice(0, result))).equal(toString([0, 1, 2, 3, 4]));
+    expect(result).toBe(output);
+    expect(toString(input.slice(0, result))).toBe(toString([0, 1, 2, 3, 4]));
   });
 });

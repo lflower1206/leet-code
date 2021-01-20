@@ -1,6 +1,5 @@
 import addBinary from './addBinary';
-import { expect } from 'chai';
-import 'mocha';
+
 
 describe('Problem 67', () => {
   it('Case 1', () => {
@@ -9,7 +8,7 @@ describe('Problem 67', () => {
     const output = '100';
     const result = addBinary(a, b);
 
-    expect(result).equal(output);
+    expect(result).toBe(output);
   });
   it('Case 2', () => {
     const a = '1010';
@@ -17,6 +16,6 @@ describe('Problem 67', () => {
     const output = '10101';
     const result = addBinary(a, b);
 
-    expect(result).equal(output);
+    expect(result).toBe(output);
   });
 });
