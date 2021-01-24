@@ -2,34 +2,25 @@ const isPalindrome = (input: number): boolean => {
   const MAX_NUMBER = 2147483647;
   const MIN_NUMBER = -2147483647;
 
-  let revertNumber = 0;
-  let remainder = 0;
-  let tempInput = input;
-
-  if (
-    tempInput < 0 ||
-    tempInput > MAX_NUMBER ||
-    tempInput < MIN_NUMBER ||
-    (tempInput % 10 === 0 && tempInput !== 0)
-  ) {
+  if (input < 0 || input > MAX_NUMBER || input < MIN_NUMBER) {
     return false;
   }
 
-  if (tempInput >= 0 && tempInput < 10) {
+  if (input < 10) {
     return true;
   }
 
-  while (
-    revertNumber < tempInput &&
-    revertNumber < MAX_NUMBER &&
-    revertNumber > MIN_NUMBER
-  ) {
-    remainder = tempInput % 10;
-    revertNumber = revertNumber * 10 + remainder;
-    tempInput = Math.floor(tempInput / 10);
+  const inputString = input.toString(10);
+  let left = 0;
+  let right = inputString.length - 1;
+
+  while (left < right) {
+    if (inputString[left++] !== inputString[right--]) {
+      return false
+    }
   }
 
-  return (tempInput === revertNumber) || (tempInput === Math.floor(revertNumber / 10));
+  return true
 };
 
 export default isPalindrome;

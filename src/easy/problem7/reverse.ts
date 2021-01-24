@@ -1,4 +1,4 @@
-const reverse = (input: number | null): number | null => {
+const reverse = (input: number): number => {
   const MAX_NUMBER = 2147483647;
   const MIN_NUMBER = -2147483647;
   if (input === null || input > MAX_NUMBER || input < MIN_NUMBER) {
