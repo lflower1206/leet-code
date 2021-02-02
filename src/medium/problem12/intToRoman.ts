@@ -17,11 +17,13 @@ const symbols = [
 
 const intToRoman = (num: number): string => {
   let result = '';
-  values.forEach((value, index) => {
+  values.some((value: number, index: number) => {
     while (num >= value) {
       num = num - value;
       result += symbols[index];
     }
+
+    return num <= 0;
   });
   return result;
 };
