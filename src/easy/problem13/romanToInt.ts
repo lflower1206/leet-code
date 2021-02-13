@@ -4,9 +4,8 @@
  * If X comes before L or C, subtract 10 eg: XL = 40 and XC = 90
  * If C comes before D or M, subtract 100 eg: CD = 400 and CM = 900
  */
-const romanToInt = (input: string): number => {
-  /* tslint:disable:object-literal-sort-keys */
-  const romanNumeralsMap: { [key: string]: number } = {
+const romanNumeralsMap: Map<string, number> = new Map(
+  Object.entries({
     I: 1,
     V: 5,
     X: 10,
@@ -14,34 +13,24 @@ const romanToInt = (input: string): number => {
     C: 100,
     D: 500,
     M: 1000,
-  };
+  })
+);
+const romanToInt = (input: string): number => {
+  const inputArray = input.split('');
+  let prev = romanNumeralsMap.get('M');
 
-  const romanNumeralArray = input.split('');
-  let result = 0;
-  let prevRomanNumeralNumber: number = -1;
-  let romanNumeral = romanNumeralArray.shift();
+  return inputArray.reduce((result, char) => {
+    const current = romanNumeralsMap.get(char);
 
-  while (romanNumeral !== undefined) {
-    const currentNumber = romanNumeralsMap[romanNumeral];
-
-    if (prevRomanNumeralNumber === -1) {
-      result = result + currentNumber;
-      prevRomanNumeralNumber = currentNumber;
-    } else if (currentNumber < prevRomanNumeralNumber) {
-      result = result + currentNumber;
-      prevRomanNumeralNumber = currentNumber;
-    } else if (currentNumber === prevRomanNumeralNumber) {
-      result = result + currentNumber;
-      prevRomanNumeralNumber = -1;
-    } else if (currentNumber > prevRomanNumeralNumber) {
-      result = result - prevRomanNumeralNumber + currentNumber - prevRomanNumeralNumber;
-      prevRomanNumeralNumber = -1;
+    if (current > prev) {
+      result = result + current - 2 * prev;
+    } else {
+      result = result + current;
     }
 
-    romanNumeral = romanNumeralArray.shift();
-  }
-
-  return result;
+    prev = current;
+    return result;
+  }, 0);
 };
 
 export default romanToInt;
